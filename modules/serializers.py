@@ -3,7 +3,7 @@ from rest_framework import serializers
 from modules.models import Module, Lesson
 
 """Сериализатор для модели образовательного модуля"""
-class EducationModuleSerializer(serializers.ModelSerializer):
+class ModuleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Module
