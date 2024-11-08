@@ -40,6 +40,12 @@ class User(AbstractUser):
         verbose_name="Дата последнего входа",
         **NULLABLE
     )
+    telegram_chat_id = models.CharField(
+        max_length=100,
+        unique=True,
+        verbose_name="Telegram chat id",
+        **NULLABLE
+    )
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
