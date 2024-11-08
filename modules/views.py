@@ -4,6 +4,7 @@ from rest_framework.generics import (CreateAPIView, DestroyAPIView,
 from rest_framework.viewsets import ModelViewSet
 
 from modules.models import Module, Lesson
+from modules.paginations import ModulePagination, LessonPagination
 from modules.serializers import ModuleSerializer, LessonSerializer
 
 """Эндпоинт для модели образовательного модуля"""
@@ -11,6 +12,7 @@ class ModuleViewSet(ModelViewSet):
 
     serializer_class = ModuleSerializer
     queryset = Module.objects.all()
+    pagination_class = ModulePagination
 
 
 """Эндпоинт для создания урока"""
@@ -32,7 +34,7 @@ class LessonListAPIView(ListAPIView):
 
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
-
+    pagination_class = LessonPagination
 
 """Эндпоинт для просмотра одного урока"""
 class LessonRetrieveAPIView(RetrieveAPIView):
