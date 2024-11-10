@@ -15,9 +15,8 @@ from users.models import User
 from users.serializers import MyTokenObtainPairSerializer, UserSerializer
 
 
-"""Эндпоинт для создания пользователя"""
 class UserCreateAPIView(CreateAPIView):
-
+    """Эндпоинт для создания пользователя"""
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
@@ -28,12 +27,12 @@ class UserCreateAPIView(CreateAPIView):
         user.save()
 
 
-"""Эндпоинт для создания токена"""
 class MyTokenObtainPairView(TokenObtainPairView):
-
+    """Эндпоинт для создания токена"""
     serializer_class = MyTokenObtainPairSerializer
-
+    """Эндпоинт для создания токена"""
     def perform_authentication(self, request):
+        """Эндпоинт для создания токена"""
         auth_header = request.headers.get("Authorization")
         if auth_header:
             try:
@@ -47,31 +46,29 @@ class MyTokenObtainPairView(TokenObtainPairView):
                 print(e)
 
 
-"""Эндпоинт просмотра списка всех пользователей"""
 class UserListAPIView(ListAPIView):
-
+    """Эндпоинт просмотра списка всех пользователей"""
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
 
-"""Эндпоинт изменения пользователя"""
 class UserUpdateAPIView(UpdateAPIView):
-
+    """Эндпоинт изменения пользователя"""
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [IsAuthenticated]
 
 
-"""Эндпоинт удаления пользователя"""
+
 class UserDestroyAPIView(DestroyAPIView):
-
+    """Эндпоинт удаления пользователя"""
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [IsAuthenticated]
 
 
-"""Функция верификации пользователя"""
 def user_verification(request, token):
+    """Функция верификации пользователя"""
     user = User.objects.filter(verification_token=token).first()
     if user:
         user.is_active = True
