@@ -32,7 +32,6 @@ class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
     def perform_authentication(self, request):
-
         auth_header = request.headers.get("Authorization")
         if auth_header:
             try:
