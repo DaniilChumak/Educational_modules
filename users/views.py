@@ -30,9 +30,9 @@ class UserCreateAPIView(CreateAPIView):
 class MyTokenObtainPairView(TokenObtainPairView):
     """Эндпоинт для создания токена"""
     serializer_class = MyTokenObtainPairSerializer
-    """Эндпоинт для создания токена"""
+
     def perform_authentication(self, request):
-        """Эндпоинт для создания токена"""
+
         auth_header = request.headers.get("Authorization")
         if auth_header:
             try:
