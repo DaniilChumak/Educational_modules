@@ -58,7 +58,6 @@ class UserUpdateAPIView(UpdateAPIView):
     permission_classes = [IsAuthenticated]
 
 
-
 class UserDestroyAPIView(DestroyAPIView):
     """Эндпоинт удаления пользователя"""
     serializer_class = UserSerializer
