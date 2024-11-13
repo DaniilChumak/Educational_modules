@@ -39,7 +39,7 @@ class Lesson(models.Model):
         verbose_name="Описание",
         **NULLABLE)
     image = models.ImageField(
-        upload_to="education/",
+        upload_to="modules/",
         verbose_name="Изображение",
         **NULLABLE
     )
